@@ -1,0 +1,5 @@
+{
+  "name": "NINLAB",
+  "description": "A tool to plan and calculate character stat builds for the MMORPG Nin Online, with AI-powered suggestions from Gemini.",
+  "requestFramePermissions": []
+}
