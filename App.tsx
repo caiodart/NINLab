@@ -360,11 +360,11 @@ const App: React.FC = () => {
                     </div>
 
                     <div className="space-y-1 mb-10">
-                        <div className="flex items-center text-[9px] font-black text-zinc-600 uppercase tracking-[0.2em] px-3 mb-4">
-                            <span className="w-24 text-left">Stat</span>
-                            <span className="flex-grow text-center">Allocated</span>
-                            <span className="w-14 text-center">Buff</span>
-                            <span className="w-16 text-center">Total</span>
+                        <div className="grid grid-cols-[96px_1fr_1fr_1fr] items-center text-[9px] font-black text-zinc-600 uppercase tracking-[0.2em] px-3 mb-4">
+                            <span className="text-left">Stat</span>
+                            <span className="text-center">Allocated</span>
+                            <span className="text-center">Buff</span>
+                            <span className="text-center">Total</span>
                         </div>
                         {STAT_NAMES.map(stat => (
                             <StatInput 

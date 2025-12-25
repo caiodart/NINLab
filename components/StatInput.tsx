@@ -45,14 +45,14 @@ export const StatInput: React.FC<StatInputProps> = ({ stat, value, buffValue, on
   const totalStat = value + buffValue;
 
   return (
-    <div className={`flex items-center justify-between p-3 transition-colors group ${isUnmet ? 'bg-red-950/20 border-l-2 border-red-600' : 'hover:bg-zinc-900 border-l-2 border-transparent hover:border-emerald-500/50'}`}>
-      <div className="w-24">
+    <div className={`grid grid-cols-[96px_1fr_1fr_1fr] items-center p-3 transition-colors group ${isUnmet ? 'bg-red-950/20 border-l-2 border-red-600' : 'hover:bg-zinc-900 border-l-2 border-transparent hover:border-emerald-500/50'}`}>
+      <div className="text-left">
         <label htmlFor={stat} className="font-bold text-[11px] uppercase tracking-widest text-zinc-400 group-hover:text-emerald-400 transition-colors">
           {STAT_MAP[stat]}
         </label>
       </div>
       
-      <div className="flex items-center space-x-1 flex-grow justify-center">
+      <div className="flex items-center justify-center space-x-1">
         <div className="flex items-center bg-black border border-zinc-800 p-1 focus-within:border-emerald-500/50 transition-colors">
             <button 
                 onClick={decrement} 
@@ -82,13 +82,13 @@ export const StatInput: React.FC<StatInputProps> = ({ stat, value, buffValue, on
         </div>
       </div>
 
-      <div className="w-14 text-center">
+      <div className="text-center">
         <span className={`text-[10px] font-bold ${buffValue > 0 ? 'text-emerald-400' : 'text-zinc-700'}`}>
             {buffValue > 0 ? `+${buffValue}` : '0'}
         </span>
       </div>
       
-      <div className="w-16 text-center">
+      <div className="text-center">
         <span className="text-lg font-black text-emerald-400">
             {totalStat}
         </span>
