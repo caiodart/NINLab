@@ -159,6 +159,11 @@ const App: React.FC = () => {
     ? (23 + weaponBaseDamage + strengthBonus) 
     : (23 + agilityBonus);
 
+  // Corrected Projectile Tools Damage Calculations: 21 base at 5 points + 1 per 2 points added
+  const kunaiDamage = 21 + Math.floor((totalStats.str - 5) / 2);
+  const shurikenDamage = 21 + Math.floor((totalStats.int - 5) / 2);
+  const senbonDamage = 21 + Math.floor((totalStats.cha - 5) / 2);
+
 
   const handleStatChange = (stat: Stat, value: number) => {
     const oldValue = baseStats[stat];
@@ -380,7 +385,7 @@ const App: React.FC = () => {
                         ))}
                     </div>
 
-                    <div className="grid grid-cols-3 gap-0 border border-zinc-800 bg-black">
+                    <div className="grid grid-cols-3 gap-0 border border-zinc-800 bg-black mb-6">
                         <div className="p-5 border-r border-zinc-800 flex flex-col items-center">
                             <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Health</span>
                             <span className="text-2xl font-black text-red-500 mt-1">{totalHp}</span>
@@ -390,8 +395,26 @@ const App: React.FC = () => {
                             <span className="text-2xl font-black text-indigo-400 mt-1">{totalChakra}</span>
                         </div>
                         <div className="p-5 flex flex-col items-center">
-                            <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Damage</span>
-                            <span className="text-2xl font-black text-emerald-400 mt-1">{autoAttackDamage}</span>
+                            <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Auto Atk</span>
+                            <span className="text-2xl font-black text-yellow-400 mt-1">{autoAttackDamage}</span>
+                        </div>
+                    </div>
+
+                    <div className="border-t border-zinc-900 pt-6">
+                        <h3 className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.2em] mb-4 text-center">Projectile Tools Damage</h3>
+                        <div className="grid grid-cols-3 gap-0 border border-zinc-800 bg-black">
+                            <div className="p-5 border-r border-zinc-800 flex flex-col items-center">
+                                <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Kunai (STR)</span>
+                                <span className="text-2xl font-black text-red-400 mt-1">{kunaiDamage}</span>
+                            </div>
+                            <div className="p-5 border-r border-zinc-800 flex flex-col items-center">
+                                <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Shuriken (INT)</span>
+                                <span className="text-2xl font-black text-cyan-400 mt-1">{shurikenDamage}</span>
+                            </div>
+                            <div className="p-5 flex flex-col items-center">
+                                <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Senbon (CHK)</span>
+                                <span className="text-2xl font-black text-purple-400 mt-1">{senbonDamage}</span>
+                            </div>
                         </div>
                     </div>
                 </section>
