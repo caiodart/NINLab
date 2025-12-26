@@ -211,7 +211,7 @@ const App: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <header className="text-center mb-16">
           <h1 className="text-7xl font-title text-white tracking-tighter">NINLAB</h1>
-          <p className="text-zinc-500 mt-2 font-medium tracking-wide uppercase text-xs">Build your character and stay on top of the meta</p>
+          <p className="text-zinc-500 mt-2 font-medium tracking-wide uppercase text-xs">Build your character</p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -405,15 +405,15 @@ const App: React.FC = () => {
                         <div className="grid grid-cols-3 gap-0 border border-zinc-800 bg-black">
                             <div className="p-5 border-r border-zinc-800 flex flex-col items-center">
                                 <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Kunai (STR)</span>
-                                <span className="text-2xl font-black text-red-400 mt-1">{kunaiDamage}</span>
+                                <span className="text-2xl font-black text-white mt-1">{kunaiDamage}</span>
                             </div>
                             <div className="p-5 border-r border-zinc-800 flex flex-col items-center">
                                 <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Shuriken (INT)</span>
-                                <span className="text-2xl font-black text-cyan-400 mt-1">{shurikenDamage}</span>
+                                <span className="text-2xl font-black text-white mt-1">{shurikenDamage}</span>
                             </div>
                             <div className="p-5 flex flex-col items-center">
                                 <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Senbon (CHK)</span>
-                                <span className="text-2xl font-black text-purple-400 mt-1">{senbonDamage}</span>
+                                <span className="text-2xl font-black text-white mt-1">{senbonDamage}</span>
                             </div>
                         </div>
                     </div>

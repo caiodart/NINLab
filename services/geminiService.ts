@@ -1,9 +1,5 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { AIGeneratedStats } from '../types';
-
-// Initialize GoogleGenAI with a named parameter for the API key from process.env.API_KEY.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const schema = {
   type: Type.OBJECT,
@@ -23,6 +19,10 @@ const schema = {
 
 export const suggestBuild = async (prompt: string, firstMastery: string, secondMastery: string): Promise<AIGeneratedStats> => {
     try {
+        // Initialize GoogleGenAI right before the call to ensure it uses the current process.env.API_KEY.
+        // This is a best practice for serverless and hosted environments like Netlify.
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        
         const masteries = [firstMastery, secondMastery].filter(Boolean);
         let masteryInfo = '';
         if (masteries.length > 0) {
@@ -41,7 +41,7 @@ export const suggestBuild = async (prompt: string, firstMastery: string, secondM
             },
         });
         
-        // Correctly accessing text content via the .text property as per guidelines.
+        // Correctly accessing text content via the .text property.
         const jsonText = response.text.trim();
         const generatedBuild = JSON.parse(jsonText);
 
@@ -54,6 +54,6 @@ export const suggestBuild = async (prompt: string, firstMastery: string, secondM
 
     } catch (error) {
         console.error("Error calling Gemini API:", error);
-        throw new Error("Failed to generate build from AI. Please check your prompt or API key.");
+        throw new Error("Neural Architect synthesis failed. Please ensure the API_KEY environment variable is correctly set in your Netlify dashboard.");
     }
 };
